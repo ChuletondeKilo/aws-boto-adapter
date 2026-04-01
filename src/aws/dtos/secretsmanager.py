@@ -14,6 +14,7 @@ class SecretsManagerGetSecretParams(BaseModel):
 class SecretsManagerGetSecretValue(BaseModel):
     """DTO for SecretsManager GetSecretValue operation"""
     method_name: Literal["get_secret_value"] = Field(default="get_secret_value")
+    api_level: Literal["resource"] = Field(default="resource")
     method_params: SecretsManagerGetSecretParams
 
 # ===== Dispatcher Union =====
@@ -22,7 +23,7 @@ SecretsManagerOperation = Union[
 ]
 
 # ===== Dispatcher Class =====
-class SecretsManagerDispatcher(BaseModel):
+class SecretsManagerOperationDispatcher(BaseModel):
     """Routes to correct SecretsManager operation based on discriminator"""
     operation: SecretsManagerOperation = Field(discriminator="method_name")
 
@@ -30,4 +31,4 @@ class SecretsManagerDispatcher(BaseModel):
 class SecretsManagerClient(BaseModel):
     
     client_type: Literal['secretsmanager']
-    method_dispatcher: SecretsManagerDispatcher
+    method_dispatcher: SecretsManagerOperationDispatcher

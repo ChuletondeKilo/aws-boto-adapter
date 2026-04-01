@@ -15,6 +15,7 @@ class S3GetObjectParams(BaseModel):
 class S3GetObject(BaseModel):
     """DTO for S3 GetObject operation"""
     method_name: Literal["get_object"] = Field(default="get_object")
+    api_level: Literal["resource"] = Field(default="resource")
     method_params: S3GetObjectParams
 
 ####### Put Object ######
@@ -30,6 +31,7 @@ class S3PutObjectParams(BaseModel):
 class S3PutObject(BaseModel):
     """DTO for S3 PutObject operation"""
     method_name: Literal["put_object"] = Field(default="put_object")
+    api_level: Literal["resource"] = Field(default="resource")
     method_params: S3PutObjectParams
 
 # ===== Dispatcher Union =====
@@ -39,7 +41,7 @@ S3Operation = Union[
 ]
 
 # ===== Dispatcher Class =====
-class S3Dispatcher(BaseModel):
+class S3OperationDispatcher(BaseModel):
     """Routes to correct S3 operation based on discriminator"""
     operation: S3Operation = Field(discriminator="method_name")
 
@@ -47,4 +49,4 @@ class S3Dispatcher(BaseModel):
 class S3Client(BaseModel):
     
     client_type: Literal['s3']
-    method_dispatcher: S3Dispatcher
+    method_dispatcher: S3OperationDispatcher

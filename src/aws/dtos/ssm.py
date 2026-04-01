@@ -13,6 +13,7 @@ class SSMGetParameterParams(BaseModel):
 class SSMGetParameter(BaseModel):
     """DTO for SSM GetParameter operation"""
     method_name: Literal["get_parameter"] = Field(default="get_parameter")
+    api_level: Literal["resource"] = Field(default="resource")
     method_params: SSMGetParameterParams
 
 ####### Get Parameters ######
@@ -25,7 +26,8 @@ class SSMGetParametersParams(BaseModel):
 class SSMGetParameters(BaseModel):
     """DTO for SSM GetParameters operation"""
     method_name: Literal["get_parameters"] = Field(default="get_parameters")
-    method_params: SSMGetParametersParams 
+    api_level: Literal["resource"] = Field(default="resource")
+    method_params: SSMGetParametersParams
 
 # ===== Dispatcher Union =====
 SSMOperation = Union[
@@ -34,7 +36,7 @@ SSMOperation = Union[
 ]
 
 # ===== Dispatcher Class =====
-class SSMDispatcher(BaseModel):
+class SSMOperationDispatcher(BaseModel):
     """Routes to correct SSM operation based on discriminator"""
     operation: SSMOperation = Field(discriminator="method_name")
 
@@ -42,4 +44,4 @@ class SSMDispatcher(BaseModel):
 class SSMClient(BaseModel):
     
     client_type: Literal['ssm']
-    method_dispatcher: SSMDispatcher
+    method_dispatcher: SSMOperationDispatcher
