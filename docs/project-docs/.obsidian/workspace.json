@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "38096048ef528b24",
+    "type": "split",
+    "children": [
+      {
+        "id": "7cb3da7d0e6053b5",
+        "type": "tabs",
+        "dimension": 30.011933174224346,
+        "children": [
+          {
+            "id": "73779302acc3f5bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Overview.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Overview"
+            }
+          }
+        ]
+      },
+      {
+        "id": "b603f9731b99a350",
+        "type": "tabs",
+        "dimension": 69.98806682577566,
+        "children": [
+          {
+            "id": "288e06e0aea2c1e0",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Schemas/Objective.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "Objective.excalidraw"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0619111a9b8c40ab",
+    "type": "split",
+    "children": [
+      {
+        "id": "1f6a6600974cd1c5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "862f4931013cb261",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "da03d7c57cea8cca",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "543d1d3f963fd903",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "bcd813bd47d91267",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5e4dc9fae5c1cc1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6f11a811d2e4c4a7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Schemas/Objective.excalidraw.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Objective.excalidraw"
+            }
+          },
+          {
+            "id": "e94801190bb23b18",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Schemas/Objective.excalidraw.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Objective.excalidraw"
+            }
+          },
+          {
+            "id": "9150137f82042821",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "1eaed5e97f0445b6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Schemas/Objective.excalidraw.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Objective.excalidraw"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "288e06e0aea2c1e0",
+  "lastOpenFiles": [
+    "Schemas/Objective.excalidraw.md",
+    "Overview.md",
+    "Untitled.md",
+    "Schemas",
+    "Excalidraw/Drawing 2026-04-04 15.15.26.excalidraw.md"
+  ]
+}

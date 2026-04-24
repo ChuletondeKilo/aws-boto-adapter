@@ -1,4 +1,4 @@
-from pydantic import Field, BaseModel
+from pydantic.dataclasses import Field, BaseModel
 from typing import Union, Literal, Optional
 
 # ===== SecretsManager Method Classes (one per method) =====
