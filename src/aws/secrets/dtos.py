@@ -1,7 +1,4 @@
-from pydantic import Field, BaseModel
-from typing import Union, Literal
-
-import boto3
+from pydantic import BaseModel
 
 ####### Get Secret Values ######
 

@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 license = {text = "MIT"}
 authors = [
-    {name = "Pablo Sole", email = "your.email@example.com"},
+    {name = "Pere Sole", email = "pscamprecios1@gmail.com"},
 ]
 keywords = ["aws", "boto3", "typing", "adapter", "lazy-loading", "descriptor"]
 classifiers = [
@@ -21,6 +21,7 @@ classifiers = [
 dependencies = [
     "boto3>=1.42.36",
     "pydantic>=2.12.5",
+    "typing-extensions>=4.15.0",
 ]
 
 [project.optional-dependencies]

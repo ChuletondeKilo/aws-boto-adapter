@@ -1,12 +1,11 @@
 from __future__ import annotations
-
 from typing import Self, TypeVar, Generic, overload
 
-from aws import *
+from .aws import SecretsService, S3Service, ParamStoreService
 
 import boto3
 
-T = TypeVar('T', SSMService, S3Service, ParamStoreService)
+T = TypeVar('T', SecretsService, S3Service, ParamStoreService)
 
 # Fer AWSServiceDescriptor(Generic[T]) ens permet despres assignar atributs amb AWSServiceDescriptor[SSMService] i ell sap que tot lo que
 # hi ha dins de la classe es amb T = SSMService.
@@ -22,8 +21,8 @@ class AWSServiceDescriptor(Generic[T]):
     @overload
     def __get__(self: Self, instance: None, owner: type) -> "AWSServiceDescriptor[T]": ...
     @overload
-    def __get__(self: Self, instance: "MyAWS", owner: type) -> T: ...
-    def __get__(self: Self, instance: "MyAWS | None", owner: type) -> "AWSServiceDescriptor[T] | T":
+    def __get__(self: Self, instance: MyAWS, owner: type) -> T: ...
+    def __get__(self: Self, instance: MyAWS | None, owner: type) -> "AWSServiceDescriptor[T] | T":
         # Nos cubre de si el usuario llama a la clase sin haberla instanciado MyAWS.s3, por ejemplo
         if instance is None:
             # Devolvemos el descriptor pero en modo instancia, lo que incluye la información del init
@@ -48,6 +47,6 @@ class MyAWS:
     # Definimos los servicios usando el descriptor
     # ¡Cero lógica repetida aquí!
     # Queremos que el __get__ nos devuelva una instancia de SSMService para ofrecer los metodos
-    ssm: AWSServiceDescriptor[SSMService] = AWSServiceDescriptor(SSMService, "ssm")  # <-- Queda inicializada la clase SSMService
+    ssm: AWSServiceDescriptor[ParamStoreService] = AWSServiceDescriptor(ParamStoreService, "ssm")  # <-- Queda inicializada la clase SSMService
     s3: AWSServiceDescriptor[S3Service] = AWSServiceDescriptor(S3Service, "s3")
-    secrets: AWSServiceDescriptor[ParamStoreService] = AWSServiceDescriptor(ParamStoreService, "secretsmanager")
+    secrets: AWSServiceDescriptor[SecretsService] = AWSServiceDescriptor(SecretsService, "secretsmanager")

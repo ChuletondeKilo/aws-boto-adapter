@@ -1,6 +1,9 @@
 from .dtos import *
+from typing import TYPE_CHECKING
 
-import boto3
+if TYPE_CHECKING:
+    
+    import boto3
     
 class ParamStoreService:
     def __init__(self, session: boto3.Session):

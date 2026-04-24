@@ -2,8 +2,8 @@ from .dtos import *
 
 import boto3
     
-class SSMService:
-    def __init__(self, session: boto3.Session):
+class SecretsService:
+    def __init__(self, session: boto3.Session) -> None:
         self._client = session.client('ssm')
         self._resource = session.resource('ssm')
 
