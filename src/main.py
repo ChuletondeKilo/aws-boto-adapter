@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Self, TypeVar, Generic, overload
+from typing import Self, TypeVar, overload
 
 from .aws import SecretsService, S3Service, ParamStoreService
 
@@ -9,7 +9,7 @@ T = TypeVar('T', SecretsService, S3Service, ParamStoreService)
 
 # Fer AWSServiceDescriptor(Generic[T]) ens permet despres assignar atributs amb AWSServiceDescriptor[SSMService] i ell sap que tot lo que
 # hi ha dins de la classe es amb T = SSMService.
-class AWSServiceDescriptor(Generic[T]):
+class AWSServiceDescriptor[T]:
     """Descriptor que gestiona la creación perezosa de servicios."""
     def __init__(self: Self, service_class: type[T], service_name: str) -> None:
         self.service_class: type[T] = service_class
@@ -21,8 +21,8 @@ class AWSServiceDescriptor(Generic[T]):
     @overload
     def __get__(self: Self, instance: None, owner: type) -> "AWSServiceDescriptor[T]": ...
     @overload
-    def __get__(self: Self, instance: MyAWS, owner: type) -> T: ...
-    def __get__(self: Self, instance: MyAWS | None, owner: type) -> "AWSServiceDescriptor[T] | T":
+    def __get__(self: Self, instance: AWSInterface, owner: type) -> T: ...
+    def __get__(self: Self, instance: AWSInterface | None, owner: type) -> "AWSServiceDescriptor[T] | T":
         # Nos cubre de si el usuario llama a la clase sin haberla instanciado MyAWS.s3, por ejemplo
         if instance is None:
             # Devolvemos el descriptor pero en modo instancia, lo que incluye la información del init
@@ -38,7 +38,7 @@ class AWSServiceDescriptor(Generic[T]):
             
         return getattr(instance, self.attr_name)
 
-class MyAWS:
+class AWSInterface:
     session: boto3.Session
     
     def __init__(self, profile: str | None = None, region: str | None = None) -> None:
