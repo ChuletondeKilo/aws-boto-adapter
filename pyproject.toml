@@ -1,10 +1,62 @@
 [project]
-name = "external-interactions"
+name = "aws-boto-adapter"
 version = "0.1.0"
-description = "Add your description here"
+description = "Lazy-loading AWS service wrapper with strong typing support"
 readme = "README.md"
 requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Pablo Sole", email = "your.email@example.com"},
+]
+keywords = ["aws", "boto3", "typing", "adapter", "lazy-loading", "descriptor"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Cloud :: AWS",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 dependencies = [
     "boto3>=1.42.36",
     "pydantic>=2.12.5",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.3",
+    "pytest-cov>=4.1.0",
+    "pyright>=1.1.375",
+]
+
+[project.urls]
+"Repository" = "https://github.com/yourusername/aws-boto-adapter"
+"Bug Tracker" = "https://github.com/yourusername/aws-boto-adapter/issues"
+"Documentation" = "https://github.com/yourusername/aws-boto-adapter/blob/main/README.md"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+aws = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "--strict-markers -v"
+
+[tool.pyright]
+include = ["src"]
+exclude = ["tests", ".venv"]
+typeCheckingMode = "strict"
+venv = ".venv"
